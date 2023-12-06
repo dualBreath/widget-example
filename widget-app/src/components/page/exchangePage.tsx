@@ -106,7 +106,6 @@ export default function ExchangePage({
               MIN_VALUE_LOADING_ERROR_ID,
               MIN_VALUE_LOADING_ERROR_MESSAGE
             );
-            console.log(MIN_VALUE_LOADING_ERROR_MESSAGE);
             setErrors(errors);
           }
         }
@@ -154,7 +153,6 @@ export default function ExchangePage({
             ESTIMATED_VALUE_LOADING_ERROR_ID,
             ESTIMATED_VALUE_LOADING_ERROR_MESSAGE
           );
-          console.log(ESTIMATED_VALUE_LOADING_ERROR_MESSAGE);
           setErrors(errors);
         }
       });
@@ -162,13 +160,11 @@ export default function ExchangePage({
   }, [value]);
 
   useEffect(() => {
-    console.log(errors);
     if (!addressValue) {
       errors.set(
         INVALID_ADDRESS_VALUE_ERROR_ID,
         INVALID_ADDRESS_VALUE_ERROR_MESSAGE
       );
-      console.log(INVALID_ADDRESS_VALUE_ERROR_MESSAGE);
       setErrors(errors);
     } else {
       errors.delete(INVALID_ADDRESS_VALUE_ERROR_ID);
@@ -177,12 +173,6 @@ export default function ExchangePage({
   }, [addressValue]);
 
   useEffect(() => {
-    console.log(errors);
-    console.log("validate");
-    console.log(
-      validate(addressValue, value, minValue, selectionLeft, selectionRight)
-    );
-
     setEnableExchange(
       validate(addressValue, value, minValue, selectionLeft, selectionRight)
     );

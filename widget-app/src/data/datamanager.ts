@@ -17,7 +17,7 @@ export class DataManager {
 
   static async GetExchangeEstimation(amount: number, from: string, to: string) {
     try {
-      const { data, status } = await axios.get<ExchangeEstimation>(
+      const { data } = await axios.get<ExchangeEstimation>(
         `https://api.changenow.io/v1/exchange-amount/${amount}/${from}_${to}/?api_key=${apiKey}`,
         {
           headers: {
@@ -25,9 +25,6 @@ export class DataManager {
           },
         }
       );
-
-      console.log(JSON.stringify(data, null, 4));
-      console.log("response status is: ", status);
 
       return data;
     } catch (error) {
@@ -43,7 +40,7 @@ export class DataManager {
 
   static async GetMinimalExchangeAmount(from: string, to: string) {
     try {
-      const { data, status } = await axios.get<MinimalExchangeAmount>(
+      const { data } = await axios.get<MinimalExchangeAmount>(
         `https://api.changenow.io/v1/min-amount/${from}_${to}?api_key=${apiKey}`,
         {
           headers: {
@@ -51,9 +48,6 @@ export class DataManager {
           },
         }
       );
-
-      console.log(JSON.stringify(data, null, 4));
-      console.log("response status is: ", status);
 
       return data;
     } catch (error) {
@@ -73,7 +67,7 @@ export class DataManager {
     }
 
     try {
-      const { data, status } = await axios.get<Currency[]>(
+      const { data } = await axios.get<Currency[]>(
         "https://api.changenow.io/v1/currencies?active=true&fixedRate=true",
         {
           headers: {
@@ -81,9 +75,6 @@ export class DataManager {
           },
         }
       );
-
-      console.log(JSON.stringify(data, null, 4));
-      console.log("response status is: ", status);
 
       return data;
     } catch (error) {
