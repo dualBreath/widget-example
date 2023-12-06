@@ -31,7 +31,7 @@ export const StyledModal = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 280px;
-  min-height: 300px px;
+  min-height: 310px;
 `;
 
 export const Close = styled.img`
